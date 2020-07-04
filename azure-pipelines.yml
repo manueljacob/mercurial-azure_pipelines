@@ -15,6 +15,7 @@ pool:
 
 steps:
 - script: |
+    pip install mercurial
     hg clone https://foss.heptapod.net/octobus/mercurial-devel -r c00eb0fb6a5e -r a5e47701202a -r 0d2b5e331bc2
     cd mercurial-devel
     hg up -C c00eb0fb6a5e
