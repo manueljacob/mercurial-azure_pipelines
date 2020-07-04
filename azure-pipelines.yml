@@ -24,7 +24,7 @@ steps:
     $(python2) --version
     $(python3) --version
     pip install mercurial
-    hg clone https://foss.heptapod.net/octobus/mercurial-devel -r c00eb0fb6a5e -r a5e47701202a -r 0d2b5e331bc2
+    hg clone https://foss.heptapod.net/octobus/mercurial-devel -r 9acfe2ba8ec4 -r da7c48b286d3 -r 9ea93d547071
     cd mercurial-devel
     hg up -C 9acfe2ba8ec4
     $(python2) tests/test-stdio.py -v
