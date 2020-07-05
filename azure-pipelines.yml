@@ -7,14 +7,17 @@ strategy:
       imageName: 'ubuntu-20.04'
       python2: 'python2'
       python3: 'python3'
+      pip_cache_dir: /home/runner/.cache/pip
     mac:
       imageName: 'macOS-10.15'
       python2: 'python2'
       python3: 'python3'
+      pip_cache_dir: /Users/runner/Library/Caches/pip
     windows:
       imageName: 'windows-2019'
       python2: 'python2'
       python3: 'python'
+      pip_cache_dir: ~\AppData\Local\pip\cache
 
 pool:
   vmImage: $(imageName)
@@ -22,8 +25,19 @@ pool:
 steps:
 - script: $(python2) --version
 - script: $(python3) --version
-- script: pip install mercurial
-- script: hg clone https://foss.heptapod.net/octobus/mercurial-devel -r cfca4e64d577 -r 794874e83ec7 -r 0c7498610e47
+- task: Cache@2
+  inputs:
+    key: 'pip | "$(Agent.OS)"'
+    path: $(pip_cache_dir)
+- script: pip install wheel mercurial
+- task: Cache@2
+  inputs:
+    key: 'hg | "$(Agent.OS)"'
+    path: mercurial-devel
+- bash: |
+    [ ! -d "mercurial-devel" ] && hg clone https://foss.heptapod.net/octobus/mercurial-devel -r cfca4e64d577 -r 794874e83ec7 -r 4a2ad7ebcf9f
+    cd mercurial-devel
+    hg pull -r cfca4e64d577 -r 794874e83ec7 -r 4a2ad7ebcf9f
 
 - script: |
     echo 'update to cfca4e64d577:'
@@ -56,8 +70,8 @@ steps:
     SILENT_BE_NOISY: 1
 
 - script: |
-    echo 'update to 0c7498610e47:'
-    hg up -C 0c7498610e47
+    echo 'update to 4a2ad7ebcf9f:'
+    hg up -C 4a2ad7ebcf9f
   workingDirectory: mercurial-devel
 - script: $(python2) tests/test-stdio.py -v
   workingDirectory: mercurial-devel
