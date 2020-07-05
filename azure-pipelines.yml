@@ -24,17 +24,57 @@ steps:
     $(python2) --version
     $(python3) --version
     pip install mercurial
-    hg clone https://foss.heptapod.net/octobus/mercurial-devel -r 9acfe2ba8ec4 -r da7c48b286d3 -r 9ea93d547071
+    hg clone https://foss.heptapod.net/octobus/mercurial-devel -r cbec874a8b0f -r 527b213d2d24 -r e5036c93535d -r b0a51f31a3ae -r 7fb911423524 -r f330f7c409a9
     cd mercurial-devel
-    hg up -C 9acfe2ba8ec4
+
+    hg up -C cbec874a8b0f
+    echo 'at cbec874a8b0f:'
     $(python2) tests/test-stdio.py -v
+    echo
     $(python3) tests/test-stdio.py -v
-    hg up -C da7c48b286d3
+    echo
+    echo
+
+    hg up -C 527b213d2d24
+    echo 'at 527b213d2d24:'
     $(python2) tests/test-stdio.py -v
+    echo
     $(python3) tests/test-stdio.py -v
-    hg up -C 9ea93d547071
+    echo
+    echo
+
+    hg up -C e5036c93535d
+    echo 'at e5036c93535d:'
     $(python2) tests/test-stdio.py -v
+    echo
     $(python3) tests/test-stdio.py -v
+    echo
+    echo
+
+    hg up -C b0a51f31a3ae
+    echo 'at b0a51f31a3ae:'
+    $(python2) tests/test-stdio.py -v
+    echo
+    $(python3) tests/test-stdio.py -v
+    echo
+    echo
+
+    hg up -C 7fb911423524
+    echo 'at 7fb911423524:'
+    $(python2) tests/test-stdio.py -v
+    echo
+    $(python3) tests/test-stdio.py -v
+    echo
+    echo
+
+    hg up -C f330f7c409a9
+    echo 'at f330f7c409a9:'
+    $(python2) tests/test-stdio.py -v
+    echo
+    $(python3) tests/test-stdio.py -v
+    echo
+    echo
+
   env:
     PYTHONPATH: .
     SILENT_BE_NOISY: 1
