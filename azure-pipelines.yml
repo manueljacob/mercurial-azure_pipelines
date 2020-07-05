@@ -7,7 +7,7 @@ strategy:
       imageName: 'ubuntu-20.04'
       python2: 'python2'
       python3: 'python3'
-      pip_cache_dir: /home/$USER/.cache/pip
+      pip_cache_dir: /home/vsts/.cache/pip
     mac:
       imageName: 'macOS-10.15'
       python2: 'python2'
