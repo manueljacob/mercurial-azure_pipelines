@@ -42,11 +42,11 @@ steps:
     cd mercurial-devel
     hg pull -r cfca4e64d577 -r 794874e83ec7 -r 4a2ad7ebcf9f
 
-- displayName: Update to cfca4e64d577
-  script: |
+- script: |
     echo 'update to cfca4e64d577:'
     hg up -C cfca4e64d577
   workingDirectory: mercurial-devel
+  displayName: Update to cfca4e64d577
 - script: $(python2) tests/test-stdio.py -v
   workingDirectory: mercurial-devel
   env:
@@ -58,11 +58,11 @@ steps:
     PYTHONPATH: .
     SILENT_BE_NOISY: 1
 
-- displayName: Update to 794874e83ec7
-  script: |
+- script: |
     echo 'update to 794874e83ec7:'
     hg up -C 794874e83ec7
   workingDirectory: mercurial-devel
+  displayName: Update to 794874e83ec7
 - script: $(python2) tests/test-stdio.py -v
   workingDirectory: mercurial-devel
   env:
@@ -74,11 +74,11 @@ steps:
     PYTHONPATH: .
     SILENT_BE_NOISY: 1
 
-- displayName: Update to 4a2ad7ebcf9f
-  script: |
+- script: |
     echo 'update to 4a2ad7ebcf9f:'
     hg up -C 4a2ad7ebcf9f
   workingDirectory: mercurial-devel
+  displayName: Update to 4a2ad7ebcf9f
 - script: $(python2) tests/test-stdio.py -v
   workingDirectory: mercurial-devel
   env:
