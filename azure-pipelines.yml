@@ -20,13 +20,12 @@ pool:
   vmImage: $(imageName)
 
 steps:
-- script: |
-    $(python2) --version
-    $(python3) --version
-    pip install mercurial
-    hg clone https://foss.heptapod.net/octobus/mercurial-devel -r cfca4e64d577 -r 794874e83ec7 -r 0c7498610e47
-    cd mercurial-devel
+- script: $(python2) --version
+- script: $(python3) --version
+- script: pip install mercurial
+- script: hg clone https://foss.heptapod.net/octobus/mercurial-devel -r cfca4e64d577 -r 794874e83ec7 -r 0c7498610e47
 
+- script: |
     hg up -C cfca4e64d577
     echo 'at cfca4e64d577:'
     $(python2) tests/test-stdio.py -v
@@ -34,7 +33,12 @@ steps:
     $(python3) tests/test-stdio.py -v
     echo
     echo
+  workingDirectory: mercurial-devel
+  env:
+    PYTHONPATH: .
+    SILENT_BE_NOISY: 1
 
+- script: |
     hg up -C 794874e83ec7
     echo 'at 794874e83ec7:'
     $(python2) tests/test-stdio.py -v
@@ -42,7 +46,12 @@ steps:
     $(python3) tests/test-stdio.py -v
     echo
     echo
+  workingDirectory: mercurial-devel
+  env:
+    PYTHONPATH: .
+    SILENT_BE_NOISY: 1
 
+- script: |
     hg up -C 0c7498610e47
     echo 'at 0c7498610e47:'
     $(python2) tests/test-stdio.py -v
@@ -50,7 +59,8 @@ steps:
     $(python3) tests/test-stdio.py -v
     echo
     echo
-
+  workingDirectory: mercurial-devel
   env:
     PYTHONPATH: .
     SILENT_BE_NOISY: 1
+
