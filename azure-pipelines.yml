@@ -37,7 +37,7 @@ steps:
     path: mercurial-devel
 - bash: |
     if [ ! -d "mercurial-devel" ]; then
-        hg clone https://foss.heptapod.net/octobus/mercurial-devel -r 2178c53039ac -r 271329a28ae2 -r 56b835bd7cb4 -r 7d5c94b54fe5 -r 6109510391c2 -r 2763cf96599d -r 556dfea068b9 || exit
+        hg clone https://hg.sr.ht/~mjacob/hg-own -r 2178c53039ac -r 271329a28ae2 -r 56b835bd7cb4 -r 7d5c94b54fe5 -r 6109510391c2 -r 2763cf96599d -r 556dfea068b9 || exit
     fi
     cd mercurial-devel
     hg pull -r 2178c53039ac -r 271329a28ae2 -r 56b835bd7cb4 -r 7d5c94b54fe5 -r 6109510391c2 -r 2763cf96599d -r 556dfea068b9
