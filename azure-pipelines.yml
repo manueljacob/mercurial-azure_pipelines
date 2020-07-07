@@ -52,11 +52,15 @@ steps:
   env:
     PYTHONPATH: .
     SILENT_BE_NOISY: 1
+  timeoutInMinutes: 1
+  continueOnError: true
 - script: $(python3) tests/test-stdio.py -v
   workingDirectory: mercurial-devel
   env:
     PYTHONPATH: .
     SILENT_BE_NOISY: 1
+  timeoutInMinutes: 1
+  continueOnError: true
 
 - script: |
     echo 'update to 07c3a9cc1a8d:'
@@ -68,11 +72,15 @@ steps:
   env:
     PYTHONPATH: .
     SILENT_BE_NOISY: 1
+  timeoutInMinutes: 1
+  continueOnError: true
 - script: $(python3) tests/test-stdio.py -v
   workingDirectory: mercurial-devel
   env:
     PYTHONPATH: .
     SILENT_BE_NOISY: 1
+  timeoutInMinutes: 1
+  continueOnError: true
 
 - script: |
     echo 'update to 1fc294e28760:'
@@ -84,11 +92,15 @@ steps:
   env:
     PYTHONPATH: .
     SILENT_BE_NOISY: 1
+  timeoutInMinutes: 1
+  continueOnError: true
 - script: $(python3) tests/test-stdio.py -v
   workingDirectory: mercurial-devel
   env:
     PYTHONPATH: .
     SILENT_BE_NOISY: 1
+  timeoutInMinutes: 1
+  continueOnError: true
 
 - script: |
     echo 'update to 478e7f8d0063:'
@@ -100,11 +112,15 @@ steps:
   env:
     PYTHONPATH: .
     SILENT_BE_NOISY: 1
+  timeoutInMinutes: 1
+  continueOnError: true
 - script: $(python3) tests/test-stdio.py -v
   workingDirectory: mercurial-devel
   env:
     PYTHONPATH: .
     SILENT_BE_NOISY: 1
+  timeoutInMinutes: 1
+  continueOnError: true
 
 - script: |
     echo 'update to b61273415a7e:'
@@ -116,9 +132,13 @@ steps:
   env:
     PYTHONPATH: .
     SILENT_BE_NOISY: 1
+  timeoutInMinutes: 1
+  continueOnError: true
 - script: $(python3) tests/test-stdio.py -v
   workingDirectory: mercurial-devel
   env:
     PYTHONPATH: .
     SILENT_BE_NOISY: 1
+  timeoutInMinutes: 1
+  continueOnError: true
 
