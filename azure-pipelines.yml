@@ -37,16 +37,16 @@ steps:
     path: mercurial-devel
 - bash: |
     if [ ! -d "mercurial-devel" ]; then
-        hg clone https://hg.sr.ht/~mjacob/hg-own -r 88bd21f8b6ae -r 07c3a9cc1a8d -r 1fc294e28760 -r 478e7f8d0063 -r 776db0b6d5b6 || exit
+        hg clone https://hg.sr.ht/~mjacob/hg-own -r d7f5f6a1e4b7 -r 78debbfb60ad -r 5cfe2a454a23 -r 1a75f29fc5f4 -r dfaafedfc1bd -r e3fb41eec416 -r 6c985177d504 -r a3089dc6a63b || exit
     fi
     cd mercurial-devel
-    hg pull https://hg.sr.ht/~mjacob/hg-own -r 88bd21f8b6ae -r 07c3a9cc1a8d -r 1fc294e28760 -r 478e7f8d0063 -r 776db0b6d5b6
+    hg pull https://hg.sr.ht/~mjacob/hg-own -r d7f5f6a1e4b7 -r 78debbfb60ad -r 5cfe2a454a23 -r 1a75f29fc5f4 -r dfaafedfc1bd -r e3fb41eec416 -r 6c985177d504 -r a3089dc6a63b
 
 - script: |
-    echo 'update to 88bd21f8b6ae:'
-    hg up -C 88bd21f8b6ae
+    echo 'update to d7f5f6a1e4b7:'
+    hg up -C d7f5f6a1e4b7
   workingDirectory: mercurial-devel
-  displayName: Update to 88bd21f8b6ae
+  displayName: Update to d7f5f6a1e4b7
 - script: $(python2) tests/test-stdio.py -v
   workingDirectory: mercurial-devel
   env:
@@ -63,10 +63,10 @@ steps:
   continueOnError: true
 
 - script: |
-    echo 'update to 07c3a9cc1a8d:'
-    hg up -C 07c3a9cc1a8d
+    echo 'update to 78debbfb60ad:'
+    hg up -C 78debbfb60ad
   workingDirectory: mercurial-devel
-  displayName: Update to 07c3a9cc1a8d
+  displayName: Update to 78debbfb60ad
 - script: $(python2) tests/test-stdio.py -v
   workingDirectory: mercurial-devel
   env:
@@ -83,10 +83,10 @@ steps:
   continueOnError: true
 
 - script: |
-    echo 'update to 1fc294e28760:'
-    hg up -C 1fc294e28760
+    echo 'update to 5cfe2a454a23:'
+    hg up -C 5cfe2a454a23
   workingDirectory: mercurial-devel
-  displayName: Update to 1fc294e28760
+  displayName: Update to 5cfe2a454a23
 - script: $(python2) tests/test-stdio.py -v
   workingDirectory: mercurial-devel
   env:
@@ -103,10 +103,10 @@ steps:
   continueOnError: true
 
 - script: |
-    echo 'update to 478e7f8d0063:'
-    hg up -C 478e7f8d0063
+    echo 'update to 1a75f29fc5f4:'
+    hg up -C 1a75f29fc5f4
   workingDirectory: mercurial-devel
-  displayName: Update to 478e7f8d0063
+  displayName: Update to 1a75f29fc5f4
 - script: $(python2) tests/test-stdio.py -v
   workingDirectory: mercurial-devel
   env:
@@ -123,10 +123,70 @@ steps:
   continueOnError: true
 
 - script: |
-    echo 'update to 776db0b6d5b6:'
-    hg up -C 776db0b6d5b6
+    echo 'update to dfaafedfc1bd:'
+    hg up -C dfaafedfc1bd
   workingDirectory: mercurial-devel
-  displayName: Update to 776db0b6d5b6
+  displayName: Update to dfaafedfc1bd
+- script: $(python2) tests/test-stdio.py -v
+  workingDirectory: mercurial-devel
+  env:
+    PYTHONPATH: .
+    SILENT_BE_NOISY: 1
+  timeoutInMinutes: 1
+  continueOnError: true
+- script: $(python3) tests/test-stdio.py -v
+  workingDirectory: mercurial-devel
+  env:
+    PYTHONPATH: .
+    SILENT_BE_NOISY: 1
+  timeoutInMinutes: 1
+  continueOnError: true
+
+- script: |
+    echo 'update to e3fb41eec416:'
+    hg up -C e3fb41eec416
+  workingDirectory: mercurial-devel
+  displayName: Update to e3fb41eec416
+- script: $(python2) tests/test-stdio.py -v
+  workingDirectory: mercurial-devel
+  env:
+    PYTHONPATH: .
+    SILENT_BE_NOISY: 1
+  timeoutInMinutes: 1
+  continueOnError: true
+- script: $(python3) tests/test-stdio.py -v
+  workingDirectory: mercurial-devel
+  env:
+    PYTHONPATH: .
+    SILENT_BE_NOISY: 1
+  timeoutInMinutes: 1
+  continueOnError: true
+
+- script: |
+    echo 'update to 6c985177d504:'
+    hg up -C 6c985177d504
+  workingDirectory: mercurial-devel
+  displayName: Update to 6c985177d504
+- script: $(python2) tests/test-stdio.py -v
+  workingDirectory: mercurial-devel
+  env:
+    PYTHONPATH: .
+    SILENT_BE_NOISY: 1
+  timeoutInMinutes: 1
+  continueOnError: true
+- script: $(python3) tests/test-stdio.py -v
+  workingDirectory: mercurial-devel
+  env:
+    PYTHONPATH: .
+    SILENT_BE_NOISY: 1
+  timeoutInMinutes: 1
+  continueOnError: true
+
+- script: |
+    echo 'update to a3089dc6a63b:'
+    hg up -C a3089dc6a63b
+  workingDirectory: mercurial-devel
+  displayName: Update to a3089dc6a63b
 - script: $(python2) tests/test-stdio.py -v
   workingDirectory: mercurial-devel
   env:
