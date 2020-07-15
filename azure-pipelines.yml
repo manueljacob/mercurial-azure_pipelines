@@ -37,10 +37,10 @@ steps:
     path: mercurial-devel
 - bash: |
     if [ ! -d "mercurial-devel" ]; then
-        hg clone https://hg.sr.ht/~mjacob/hg-own -r 6f0e5c118bfd -r 268bf1717fd3 -r 72d55f3922b4 -r 49ebcf3b048c -r e18a8eae063e || exit
+        hg clone https://hg.sr.ht/~mjacob/hg-own -r 6f0e5c118bfd -r 268bf1717fd3 -r 72d55f3922b4 -r 49ebcf3b048c -r 5470ea4c6dad || exit
     fi
     cd mercurial-devel
-    hg pull https://hg.sr.ht/~mjacob/hg-own -r 6f0e5c118bfd -r 268bf1717fd3 -r 72d55f3922b4 -r 49ebcf3b048c -r e18a8eae063e
+    hg pull https://hg.sr.ht/~mjacob/hg-own -r 6f0e5c118bfd -r 268bf1717fd3 -r 72d55f3922b4 -r 49ebcf3b048c -r 5470ea4c6dad
 
 - script: |
     echo 'update to 6f0e5c118bfd:'
@@ -123,10 +123,10 @@ steps:
   continueOnError: true
 
 - script: |
-    echo 'update to e18a8eae063e:'
-    hg up -C e18a8eae063e
+    echo 'update to 5470ea4c6dad:'
+    hg up -C 5470ea4c6dad
   workingDirectory: mercurial-devel
-  displayName: Update to e18a8eae063e
+  displayName: Update to 5470ea4c6dad
 - script: $(python2) tests/test-stdio.py -v
   workingDirectory: mercurial-devel
   env:
