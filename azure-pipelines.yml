@@ -37,16 +37,16 @@ steps:
     path: mercurial-devel
 - bash: |
     if [ ! -d "mercurial-devel" ]; then
-        hg clone https://hg.sr.ht/~mjacob/hg-own -r 6f0e5c118bfd -r 268bf1717fd3 -r 72d55f3922b4 -r 49ebcf3b048c -r 5470ea4c6dad || exit
+        hg clone https://hg.sr.ht/~mjacob/hg-own -r 8718b4d5e08f -r 7e2a3c0ca7c5 || exit
     fi
     cd mercurial-devel
-    hg pull https://hg.sr.ht/~mjacob/hg-own -r 6f0e5c118bfd -r 268bf1717fd3 -r 72d55f3922b4 -r 49ebcf3b048c -r 5470ea4c6dad
+    hg pull https://hg.sr.ht/~mjacob/hg-own -r 8718b4d5e08f -r 7e2a3c0ca7c5
 
 - script: |
-    echo 'update to 6f0e5c118bfd:'
-    hg up -C 6f0e5c118bfd
+    echo 'update to 8718b4d5e08f:'
+    hg up -C 8718b4d5e08f
   workingDirectory: mercurial-devel
-  displayName: Update to 6f0e5c118bfd
+  displayName: Update to 8718b4d5e08f
 - script: $(python2) tests/test-stdio.py -v
   workingDirectory: mercurial-devel
   env:
@@ -63,70 +63,10 @@ steps:
   continueOnError: true
 
 - script: |
-    echo 'update to 268bf1717fd3:'
-    hg up -C 268bf1717fd3
+    echo 'update to 7e2a3c0ca7c5:'
+    hg up -C 7e2a3c0ca7c5
   workingDirectory: mercurial-devel
-  displayName: Update to 268bf1717fd3
-- script: $(python2) tests/test-stdio.py -v
-  workingDirectory: mercurial-devel
-  env:
-    PYTHONPATH: .
-    SILENT_BE_NOISY: 1
-  timeoutInMinutes: 1
-  continueOnError: true
-- script: $(python3) tests/test-stdio.py -v
-  workingDirectory: mercurial-devel
-  env:
-    PYTHONPATH: .
-    SILENT_BE_NOISY: 1
-  timeoutInMinutes: 1
-  continueOnError: true
-
-- script: |
-    echo 'update to 72d55f3922b4:'
-    hg up -C 72d55f3922b4
-  workingDirectory: mercurial-devel
-  displayName: Update to 72d55f3922b4
-- script: $(python2) tests/test-stdio.py -v
-  workingDirectory: mercurial-devel
-  env:
-    PYTHONPATH: .
-    SILENT_BE_NOISY: 1
-  timeoutInMinutes: 1
-  continueOnError: true
-- script: $(python3) tests/test-stdio.py -v
-  workingDirectory: mercurial-devel
-  env:
-    PYTHONPATH: .
-    SILENT_BE_NOISY: 1
-  timeoutInMinutes: 1
-  continueOnError: true
-
-- script: |
-    echo 'update to 49ebcf3b048c:'
-    hg up -C 49ebcf3b048c
-  workingDirectory: mercurial-devel
-  displayName: Update to 49ebcf3b048c
-- script: $(python2) tests/test-stdio.py -v
-  workingDirectory: mercurial-devel
-  env:
-    PYTHONPATH: .
-    SILENT_BE_NOISY: 1
-  timeoutInMinutes: 1
-  continueOnError: true
-- script: $(python3) tests/test-stdio.py -v
-  workingDirectory: mercurial-devel
-  env:
-    PYTHONPATH: .
-    SILENT_BE_NOISY: 1
-  timeoutInMinutes: 1
-  continueOnError: true
-
-- script: |
-    echo 'update to 5470ea4c6dad:'
-    hg up -C 5470ea4c6dad
-  workingDirectory: mercurial-devel
-  displayName: Update to 5470ea4c6dad
+  displayName: Update to 7e2a3c0ca7c5
 - script: $(python2) tests/test-stdio.py -v
   workingDirectory: mercurial-devel
   env:
