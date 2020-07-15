@@ -37,64 +37,43 @@ steps:
     path: mercurial-devel
 - bash: |
     if [ ! -d "mercurial-devel" ]; then
-        hg clone https://hg.sr.ht/~mjacob/hg-own -r 2816a12b20f6 -r 00440f3b3bb8 -r cead0829d3f3 -r 13282f0e0e54 -r c423db37c9c3 -r baa2685f8728 -r 5de946ca8412 -r 962dbec29eb5 || exit
+        hg clone https://hg.sr.ht/~mjacob/hg-own -r 6f0e5c118bfd -r 268bf1717fd3 -r 72d55f3922b4 -r 49ebcf3b048c -r e18a8eae063e || exit
     fi
     cd mercurial-devel
-    hg pull https://hg.sr.ht/~mjacob/hg-own -r 2816a12b20f6 -r 00440f3b3bb8 -r cead0829d3f3 -r 13282f0e0e54 -r c423db37c9c3 -r baa2685f8728 -r 5de946ca8412 -r 962dbec29eb5
+    hg pull https://hg.sr.ht/~mjacob/hg-own -r 6f0e5c118bfd -r 268bf1717fd3 -r 72d55f3922b4 -r 49ebcf3b048c -r e18a8eae063e
 
 - script: |
-    echo 'update to 2816a12b20f6:'
-    hg up -C 2816a12b20f6
+    echo 'update to 6f0e5c118bfd:'
+    hg up -C 6f0e5c118bfd
   workingDirectory: mercurial-devel
-  displayName: Update to 2816a12b20f6
+  displayName: Update to 6f0e5c118bfd
 - script: $(python2) tests/run-tests.py tests/test-check-*
 
 - script: |
-    echo 'update to 00440f3b3bb8:'
-    hg up -C 00440f3b3bb8
+    echo 'update to 268bf1717fd3:'
+    hg up -C 268bf1717fd3
   workingDirectory: mercurial-devel
-  displayName: Update to 00440f3b3bb8
+  displayName: Update to 268bf1717fd3
 - script: $(python2) tests/run-tests.py tests/test-check-*
 
 - script: |
-    echo 'update to cead0829d3f3:'
-    hg up -C cead0829d3f3
+    echo 'update to 72d55f3922b4:'
+    hg up -C 72d55f3922b4
   workingDirectory: mercurial-devel
-  displayName: Update to cead0829d3f3
+  displayName: Update to 72d55f3922b4
 - script: $(python2) tests/run-tests.py tests/test-check-*
 
 - script: |
-    echo 'update to 13282f0e0e54:'
-    hg up -C 13282f0e0e54
+    echo 'update to 49ebcf3b048c:'
+    hg up -C 49ebcf3b048c
   workingDirectory: mercurial-devel
-  displayName: Update to 13282f0e0e54
+  displayName: Update to 49ebcf3b048c
 - script: $(python2) tests/run-tests.py tests/test-check-*
 
 - script: |
-    echo 'update to c423db37c9c3:'
-    hg up -C c423db37c9c3
+    echo 'update to e18a8eae063e:'
+    hg up -C e18a8eae063e
   workingDirectory: mercurial-devel
-  displayName: Update to c423db37c9c3
-- script: $(python2) tests/run-tests.py tests/test-check-*
-
-- script: |
-    echo 'update to baa2685f8728:'
-    hg up -C baa2685f8728
-  workingDirectory: mercurial-devel
-  displayName: Update to baa2685f8728
-- script: $(python2) tests/run-tests.py tests/test-check-*
-
-- script: |
-    echo 'update to 5de946ca8412:'
-    hg up -C 5de946ca8412
-  workingDirectory: mercurial-devel
-  displayName: Update to 5de946ca8412
-- script: $(python2) tests/run-tests.py tests/test-check-*
-
-- script: |
-    echo 'update to 962dbec29eb5:'
-    hg up -C 962dbec29eb5
-  workingDirectory: mercurial-devel
-  displayName: Update to 962dbec29eb5
+  displayName: Update to e18a8eae063e
 - script: $(python2) tests/run-tests.py tests/test-check-*
 
