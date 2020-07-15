@@ -76,4 +76,3 @@ steps:
   workingDirectory: mercurial-devel
   displayName: Update to e18a8eae063e
 - script: $(python2) tests/run-tests.py tests/test-check-*
-
