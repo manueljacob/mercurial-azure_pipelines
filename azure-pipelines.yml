@@ -30,17 +30,17 @@ steps:
     key: 'pip | "$(Agent.OS)"'
     path: $(pip_cache_dir)
 - script: pip install wheel
-- script: pip install mercurial
+- script: pip install mercurial vcrpy
 - task: Cache@2
   inputs:
     key: 'hg | "$(Agent.OS)"'
     path: mercurial-devel
 - bash: |
     if [ ! -d "mercurial-devel" ]; then
-        hg clone https://hg.sr.ht/~mjacob/hg-own -r 217660a6547c -r 90b4881b969c -r ccb8a4d3b827 -r 9b3b9cc881af || exit
+        hg clone https://hg.sr.ht/~mjacob/hg-own -r 217660a6547c -r 90b4881b969c -r 91f6d0508aca -r 741837f16067 || exit
     fi
     cd mercurial-devel
-    hg pull https://hg.sr.ht/~mjacob/hg-own -r 217660a6547c -r 90b4881b969c -r ccb8a4d3b827 -r 9b3b9cc881af
+    hg pull https://hg.sr.ht/~mjacob/hg-own -r 217660a6547c -r 90b4881b969c -r 91f6d0508aca -r 741837f16067
 
 - script: |
     echo 'update to 217660a6547c:'
@@ -55,6 +55,20 @@ steps:
   timeoutInMinutes: 1
   continueOnError: true
 - script: $(python3) tests/test-stdio.py -v
+  workingDirectory: mercurial-devel
+  env:
+    PYTHONPATH: .
+    SILENT_BE_NOISY: 1
+  timeoutInMinutes: 1
+  continueOnError: true
+- script: $(python2) tests/run-tests.py --local tests/test-phabricator.t
+  workingDirectory: mercurial-devel
+  env:
+    PYTHONPATH: .
+    SILENT_BE_NOISY: 1
+  timeoutInMinutes: 1
+  continueOnError: true
+- script: $(python3) tests/run-tests.py --local tests/test-phabricator.t
   workingDirectory: mercurial-devel
   env:
     PYTHONPATH: .
@@ -81,12 +95,26 @@ steps:
     SILENT_BE_NOISY: 1
   timeoutInMinutes: 1
   continueOnError: true
+- script: $(python2) tests/run-tests.py --local tests/test-phabricator.t
+  workingDirectory: mercurial-devel
+  env:
+    PYTHONPATH: .
+    SILENT_BE_NOISY: 1
+  timeoutInMinutes: 1
+  continueOnError: true
+- script: $(python3) tests/run-tests.py --local tests/test-phabricator.t
+  workingDirectory: mercurial-devel
+  env:
+    PYTHONPATH: .
+    SILENT_BE_NOISY: 1
+  timeoutInMinutes: 1
+  continueOnError: true
 
 - script: |
-    echo 'update to ccb8a4d3b827:'
-    hg up -C ccb8a4d3b827
+    echo 'update to 91f6d0508aca:'
+    hg up -C 91f6d0508aca
   workingDirectory: mercurial-devel
-  displayName: Update to ccb8a4d3b827
+  displayName: Update to 91f6d0508aca
 - script: $(python2) tests/test-stdio.py -v
   workingDirectory: mercurial-devel
   env:
@@ -101,12 +129,26 @@ steps:
     SILENT_BE_NOISY: 1
   timeoutInMinutes: 1
   continueOnError: true
+- script: $(python2) tests/run-tests.py --local tests/test-phabricator.t
+  workingDirectory: mercurial-devel
+  env:
+    PYTHONPATH: .
+    SILENT_BE_NOISY: 1
+  timeoutInMinutes: 1
+  continueOnError: true
+- script: $(python3) tests/run-tests.py --local tests/test-phabricator.t
+  workingDirectory: mercurial-devel
+  env:
+    PYTHONPATH: .
+    SILENT_BE_NOISY: 1
+  timeoutInMinutes: 1
+  continueOnError: true
 
 - script: |
-    echo 'update to 9b3b9cc881af:'
-    hg up -C 9b3b9cc881af
+    echo 'update to 741837f16067:'
+    hg up -C 741837f16067
   workingDirectory: mercurial-devel
-  displayName: Update to 9b3b9cc881af
+  displayName: Update to 741837f16067
 - script: $(python2) tests/test-stdio.py -v
   workingDirectory: mercurial-devel
   env:
@@ -115,6 +157,20 @@ steps:
   timeoutInMinutes: 1
   continueOnError: true
 - script: $(python3) tests/test-stdio.py -v
+  workingDirectory: mercurial-devel
+  env:
+    PYTHONPATH: .
+    SILENT_BE_NOISY: 1
+  timeoutInMinutes: 1
+  continueOnError: true
+- script: $(python2) tests/run-tests.py --local tests/test-phabricator.t
+  workingDirectory: mercurial-devel
+  env:
+    PYTHONPATH: .
+    SILENT_BE_NOISY: 1
+  timeoutInMinutes: 1
+  continueOnError: true
+- script: $(python3) tests/run-tests.py --local tests/test-phabricator.t
   workingDirectory: mercurial-devel
   env:
     PYTHONPATH: .
